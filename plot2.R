@@ -20,25 +20,20 @@
   # Sub_metering_3: energy sub-metering No. 3 (in watt-hour of active energy). It corresponds to an electric water-heater and an air-conditioner.
   
   
-  datos$Date = as.Date(datos$Date, "%d/%m/%Y")
-
- datos <- mutate(datos, fecha_completa=paste(datos$Date,datos$Time))
-
- 
+datos$Date = as.Date(datos$Date, "%d/%m/%Y")
+datos <- mutate(datos, fecha_completa=paste(datos$Date,datos$Time))
 
 datos$fecha_completa = strptime(datos$fecha_completa, "%Y-%m-%d %H:%M:%S")
 datos$Global_active_power = as.numeric(datos$Global_active_power) 
+# Create a new subset with the period to study
 datos_feb_1_2 <- datos[(datos$Date=="2007-02-01" | datos$Date=="2007-02-02"), ]
 
 
  y <- datos_feb_1_2$Global_active_power
  x <- datos_feb_1_2$fecha_completa
 
-
-
 print("Generating the plot2.png file .....")
 png(file="./plot2.png", width = 480, height = 480, units = "px") # open file png
-
 
 par(pch=".", mar=c(3,5,4,2))
 plot(x,y, ylab="Global Active Power (kilowatts)")
@@ -46,6 +41,6 @@ lines(x,y)
 
 dev.off() ## close de png file 
 
-print("The plot2.png file was created in your currrent working directory.")
+print("The plot2.png file was successfully created in your currrent working directory.")
 
 } 

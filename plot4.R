@@ -24,15 +24,13 @@
   
   
   datos$fecha_completa = strptime(datos$fecha_completa, "%Y-%m-%d %H:%M:%S")
-  # datos$Global_active_power = as.numeric(datos$Global_active_power) 
+  
+  # Create a new subset with the period to study
   datos_feb_1_2 <- datos[(datos$Date=="2007-02-01" | datos$Date=="2007-02-02"), ]
-  
-  
+    
   print("Generating plot4.png file .....")
-  
-  png(file="./plot4.png", width = 480, height = 480, units = "px") # open file png
-  
-   par(mfrow=c(2,2))
+    png(file="./plot4.png", width = 480, height = 480, units = "px") # open file png
+     par(mfrow=c(2,2))
   
       # graph 1
       # Coordinates definition

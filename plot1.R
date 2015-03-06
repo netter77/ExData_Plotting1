@@ -8,7 +8,7 @@
   #                  142,5 MB so we need doble; at least 300 MB free of RAM to load data
   # 
 
-  # You need to have the file with data set uncompressed 
+  # Remember: You need to have the file with data set uncompressed 
   # "household_power_consumption.txt" in your working directory to load data.
   
   library(dplyr)
@@ -30,6 +30,7 @@ datos <- read.csv("./household_power_consumption.txt",  sep= ";",stringsAsFactor
 datos$Date = as.Date(datos$Date, "%d/%m/%Y")
 
 datos$Global_active_power = as.numeric(datos$Global_active_power)
+# Create a new subset with the period to study
 datos_feb_1_2 <- datos[(datos$Date=="2007-02-01" | datos$Date=="2007-02-02"), ]
 
 
