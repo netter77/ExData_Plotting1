@@ -2,6 +2,7 @@
   # This script makes a file in png format from a txt csv data file
   # You will need to download the file https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip
   # You need to unzipp this file in your current working directory with the name household_power_consumption.txt
+  # Author: igonzalvez@gmail.com - March 2015
   library(dplyr)
   
   Sys.setlocale("LC_TIME", "English")
